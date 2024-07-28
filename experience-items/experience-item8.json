@@ -1,0 +1,9 @@
+{
+    "ContentType": {"S": "Experience"},
+    "ID": {"S": "8"},
+    "Company": {"S": "Cognizant Technology Solutions - Bangalore, India"},
+    "Position": {"S": "Application Security Engineer"},
+    "StartDate": {"S": "2020-08"},
+    "EndDate": {"S": "2021-11"},
+    "Description": {"S": "Application logging and monitoring using Prometheus and Grafana integrations."}
+  }

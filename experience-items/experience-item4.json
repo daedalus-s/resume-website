@@ -1,0 +1,9 @@
+{
+    "ContentType": {"S": "Experience"},
+    "ID": {"S": "4"},
+    "Company": {"S": "Akamai Technologies Inc - Bangalore, India"},
+    "Position": {"S": "Solutions Architect"},
+    "StartDate": {"S": "2021-11"},
+    "EndDate": {"S": "2022-07"},
+    "Description": {"S": "Utilized Python scripting for various automation tasks and integrations, contributing to streamlined workflows. Created 22 new features for delivery and security products."}
+  }

@@ -1,0 +1,9 @@
+{
+    "ContentType": {"S": "Experience"},
+    "ID": {"S": "5"},
+    "Company": {"S": "Akamai Technologies Inc - Bangalore, India"},
+    "Position": {"S": "Solutions Architect"},
+    "StartDate": {"S": "2021-11"},
+    "EndDate": {"S": "2022-07"},
+    "Description": {"S": "Drove presales strategy by demonstrating services that address web challenges to global customers through POCs with a unified CDN and security platform with 125% efficiency dealing with $20M+ deals."}
+  }

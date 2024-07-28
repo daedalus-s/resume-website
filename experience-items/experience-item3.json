@@ -1,0 +1,9 @@
+{
+    "ContentType": {"S": "Experience"},
+    "ID": {"S": "3"},
+    "Company": {"S": "R3 - Manhattan, NY"},
+    "Position": {"S": "Professional Services Engineer"},
+    "StartDate": {"S": "2023-06"},
+    "EndDate": {"S": "2024-04"},
+    "Description": {"S": "Designed and implemented resilient cloud infrastructures on AWS and GCP, seamlessly integrating Jenkins, JFrog Artifactory, and Kubernetes for scalable and reliable deployments. Migration of high availability web servers and databases to AWS EC2 and RDS with minimum or no downtime."}
+  }

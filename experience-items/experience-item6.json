@@ -1,0 +1,9 @@
+{
+    "ContentType": {"S": "Experience"},
+    "ID": {"S": "6"},
+    "Company": {"S": "Akamai Technologies Inc - Bangalore, India"},
+    "Position": {"S": "Solutions Architect"},
+    "StartDate": {"S": "2021-11"},
+    "EndDate": {"S": "2022-07"},
+    "Description": {"S": "Log analysis, troubleshooting, and generating performance reports for high-profile clients. Troubleshooting issues reg. Security attack analysis, Rate Control, DDoS management, performance tuning websites."}
+  }

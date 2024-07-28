@@ -1,0 +1,9 @@
+{
+    "ContentType": {"S": "Experience"},
+    "ID": {"S": "1"},
+    "Company": {"S": "R3 - Manhattan, NY"},
+    "Position": {"S": "Professional Services Engineer"},
+    "StartDate": {"S": "2023-06"},
+    "EndDate": {"S": "2024-04"},
+    "Description": {"S": "Created full-stack sales engineering demos; highly available and scalable Corda applications on R3's distributed ledger platform"}
+  }

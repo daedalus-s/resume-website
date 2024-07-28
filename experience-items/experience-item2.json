@@ -1,0 +1,9 @@
+{
+    "ContentType": {"S": "Experience"},
+    "ID": {"S": "2"},
+    "Company": {"S": "R3 - Manhattan, NY"},
+    "Position": {"S": "Professional Services Engineer"},
+    "StartDate": {"S": "2023-06"},
+    "EndDate": {"S": "2024-04"},
+    "Description": {"S": "Experience in designing and architecting multi-AZ deployment of applications in public and private Cloud using Virtual Private Cloud Peering for high availability and with security."}
+  }

@@ -1,0 +1,9 @@
+{
+    "ContentType": {"S": "Experience"},
+    "ID": {"S": "9"},
+    "Company": {"S": "Cognizant Technology Solutions - Bangalore, India"},
+    "Position": {"S": "Application Security Engineer"},
+    "StartDate": {"S": "2020-08"},
+    "EndDate": {"S": "2021-11"},
+    "Description": {"S": "Demonstrated expertise in Linux administration and applied DevOps principles to streamline software development and Deployment processes."}
+  }

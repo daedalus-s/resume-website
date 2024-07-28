@@ -1,0 +1,9 @@
+{
+    "ContentType": {"S": "Experience"},
+    "ID": {"S": "7"},
+    "Company": {"S": "Cognizant Technology Solutions - Bangalore, India"},
+    "Position": {"S": "Application Security Engineer"},
+    "StartDate": {"S": "2020-08"},
+    "EndDate": {"S": "2021-11"},
+    "Description": {"S": "Developed Python scripts for automation, security audits and log analysis on Amazon Web Services (AWS) and Microsoft Azure, showcasing proficiency in deploying and managing cloud infrastructure."}
+  }
