@@ -1,0 +1,7 @@
+{
+    "ContentType": {"S": "Project"},
+    "ID": {"S": "20"},
+    "Title": {"S": "Movie Recommendation System"},
+    "Description": {"S": "Implemented a collaborative filtering algorithm using Python and machine learning techniques."},
+    "Technologies": {"SS": [" "]}
+  }

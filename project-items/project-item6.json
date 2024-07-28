@@ -1,0 +1,7 @@
+{
+    "ContentType": {"S": "Project"},
+    "ID": {"S": "24"},
+    "Title": {"S": "Elderly Assistance Robot"},
+    "Description": {"S": "Implemented a socially cognizant robot that implemented the concept of crowd navigation using OpenAI Baselines."},
+    "Technologies": {"SS": [" "]}
+  }

@@ -1,0 +1,7 @@
+{
+    "ContentType": {"S": "Project"},
+    "ID": {"S": "21"},
+    "Title": {"S": "Online Auction Website"},
+    "Description": {"S": "Developed a fully functional auction platform using Python, Django, and PostgreSQL."},
+    "Technologies": {"SS": [" "]}
+  }

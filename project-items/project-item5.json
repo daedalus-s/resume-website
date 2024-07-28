@@ -1,0 +1,7 @@
+{
+    "ContentType": {"S": "Project"},
+    "ID": {"S": "23"},
+    "Title": {"S": "Skin Lesion Classification"},
+    "Description": {"S": "Developed a deep learning model using transfer learning for accurate classification of skin lesions from images"},
+    "Technologies": {"SS": [" "]}
+  }

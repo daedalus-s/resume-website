@@ -1,0 +1,7 @@
+{
+    "ContentType": {"S": "Project"},
+    "ID": {"S": "1"},
+    "Title": {"S": "Resume Website"},
+    "Description": {"S": "Created a serverless resume website using AWS services(This one HAHA)"},
+    "Technologies": {"SS": ["S3", "CloudFront", "Lambda", "API Gateway", "DynamoDB"]}
+  }

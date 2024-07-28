@@ -1,0 +1,7 @@
+{
+    "ContentType": {"S": "Project"},
+    "ID": {"S": "22"},
+    "Title": {"S": "Face and Digit Classifier"},
+    "Description": {"S": "Built machine learning models for image classification using Python and TensorFlow"},
+    "Technologies": {"SS": [" "]}
+  }
