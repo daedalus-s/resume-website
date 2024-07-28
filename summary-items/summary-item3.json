@@ -1,0 +1,5 @@
+{
+    "ContentType": {"S": "Location"},
+    "ID": {"S": "30"},
+    "Description": {"S": "Fairfax, Virginia"}
+  }
