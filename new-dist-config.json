@@ -1,119 +1,119 @@
-﻿    "ETag": "E3Q32IHQLPIPU3",
-    "DistributionConfig": {
-        "CallerReference": "cli-1721595052-640045",
-        "Aliases": {
-            "Quantity": 2
-            "Items": ["sreenikethaathreya.com", "www.sreenikethaathreya.com"]
-        },
-        "DefaultRootObject": "index.html",
-        "Origins": {
-            "Quantity": 1,
-            "Items": [
-                {
-                    "Id": "sreeniketh-resume-website.s3.amazonaws.com-1721595052-288804",
-                    "DomainName": "sreeniketh-resume-website.s3.amazonaws.com",
-                    "OriginPath": "",
-                    "CustomHeaders": {
-                        "Quantity": 0
-                    },
-                    "S3OriginConfig": {
-                        "OriginAccessIdentity": ""
-                    },
-                    "ConnectionAttempts": 3,
-                    "ConnectionTimeout": 10,
-                    "OriginShield": {
-                        "Enabled": false
-                    },
-                    "OriginAccessControlId": ""
-                }
-            ]
-        },
-        "OriginGroups": {
+﻿"ETag": "E3Q32IHQLPIPU3",
+"DistributionConfig": {
+    "CallerReference": "cli-1721595052-640045",
+    "Aliases": {
+        "Quantity": 2
+        "Items": ["sreenikethaathreya.com", "www.sreenikethaathreya.com"]
+    },
+    "DefaultRootObject": "index.html",
+    "Origins": {
+        "Quantity": 1,
+        "Items": [
+            {
+                "Id": "sreeniketh-resume-website.s3.amazonaws.com-1721595052-288804",
+                "DomainName": "sreeniketh-resume-website.s3.amazonaws.com",
+                "OriginPath": "",
+                "CustomHeaders": {
+                    "Quantity": 0
+                },
+                "S3OriginConfig": {
+                    "OriginAccessIdentity": ""
+                },
+                "ConnectionAttempts": 3,
+                "ConnectionTimeout": 10,
+                "OriginShield": {
+                    "Enabled": false
+                },
+                "OriginAccessControlId": ""
+            }
+        ]
+    },
+    "OriginGroups": {
+        "Quantity": 0
+    },
+    "DefaultCacheBehavior": {
+        "TargetOriginId": "sreeniketh-resume-website.s3.amazonaws.com-1721595052-288804",
+        "TrustedSigners": {
+            "Enabled": false,
             "Quantity": 0
         },
-        "DefaultCacheBehavior": {
-            "TargetOriginId": "sreeniketh-resume-website.s3.amazonaws.com-1721595052-288804",
-            "TrustedSigners": {
-                "Enabled": false,
-                "Quantity": 0
-            },
-            "TrustedKeyGroups": {
-                "Enabled": false,
-                "Quantity": 0
-            },
-            "ViewerProtocolPolicy": "allow-all",
-            "AllowedMethods": {
+        "TrustedKeyGroups": {
+            "Enabled": false,
+            "Quantity": 0
+        },
+        "ViewerProtocolPolicy": "allow-all",
+        "AllowedMethods": {
+            "Quantity": 2,
+            "Items": [
+                "HEAD",
+                "GET"
+            ],
+            "CachedMethods": {
                 "Quantity": 2,
                 "Items": [
                     "HEAD",
                     "GET"
-                ],
-                "CachedMethods": {
-                    "Quantity": 2,
-                    "Items": [
-                        "HEAD",
-                        "GET"
-                    ]
-                }
-            },
-            "SmoothStreaming": false,
-            "Compress": false,
-            "LambdaFunctionAssociations": {
-                "Quantity": 0
-            },
-            "FunctionAssociations": {
-                "Quantity": 0
-            },
-            "FieldLevelEncryptionId": "",
-            "ForwardedValues": {
-                "QueryString": false,
-                "Cookies": {
-                    "Forward": "none"
-                },
-                "Headers": {
-                    "Quantity": 0
-                },
-                "QueryStringCacheKeys": {
-                    "Quantity": 0
-                }
-            },
-            "MinTTL": 0,
-            "DefaultTTL": 86400,
-            "MaxTTL": 31536000
+                ]
+            }
         },
-        "CacheBehaviors": {
+        "SmoothStreaming": false,
+        "Compress": false,
+        "LambdaFunctionAssociations": {
             "Quantity": 0
         },
-        "CustomErrorResponses": {
+        "FunctionAssociations": {
             "Quantity": 0
         },
-        "Comment": "",
-        "Logging": {
-            "Enabled": false,
-            "IncludeCookies": false,
-            "Bucket": "",
-            "Prefix": ""
-        },
-        "PriceClass": "PriceClass_All",
-        "Enabled": true,
-        "ViewerCertificate": {
-            "CloudFrontDefaultCertificate": false,
-            "ACMCertificateArn": "arn:aws:acm:us-east-1:824116678613:certificate/9d497466-f122-4650-a647-11999952bf8e",
-            "SSLSupportMethod": "sni-only",
-            "MinimumProtocolVersion": "TLSv1.2_2021",
-            "Certificate": "arn:aws:acm:us-east-1:824116678613:certificate/9d497466-f122-4650-a647-11999952bf8e",
-            "CertificateSource": "acm"
-        },
-        "Restrictions": {
-            "GeoRestriction": {
-                "RestrictionType": "none",
+        "FieldLevelEncryptionId": "",
+        "ForwardedValues": {
+            "QueryString": false,
+            "Cookies": {
+                "Forward": "none"
+            },
+            "Headers": {
+                "Quantity": 0
+            },
+            "QueryStringCacheKeys": {
                 "Quantity": 0
             }
         },
-        "WebACLId": "",
-        "HttpVersion": "http2",
-        "IsIPV6Enabled": true,
-        "ContinuousDeploymentPolicyId": "",
-        "Staging": false
-    }
+        "MinTTL": 0,
+        "DefaultTTL": 86400,
+        "MaxTTL": 31536000
+    },
+    "CacheBehaviors": {
+        "Quantity": 0
+    },
+    "CustomErrorResponses": {
+        "Quantity": 0
+    },
+    "Comment": "",
+    "Logging": {
+        "Enabled": false,
+        "IncludeCookies": false,
+        "Bucket": "",
+        "Prefix": ""
+    },
+    "PriceClass": "PriceClass_All",
+    "Enabled": true,
+    "ViewerCertificate": {
+        "CloudFrontDefaultCertificate": false,
+        "ACMCertificateArn": "arn:aws:acm:us-east-1:824116678613:certificate/9d497466-f122-4650-a647-11999952bf8e",
+        "SSLSupportMethod": "sni-only",
+        "MinimumProtocolVersion": "TLSv1.2_2021",
+        "Certificate": "arn:aws:acm:us-east-1:824116678613:certificate/9d497466-f122-4650-a647-11999952bf8e",
+        "CertificateSource": "acm"
+    },
+    "Restrictions": {
+        "GeoRestriction": {
+            "RestrictionType": "none",
+            "Quantity": 0
+        }
+    },
+    "WebACLId": "",
+    "HttpVersion": "http2",
+    "IsIPV6Enabled": true,
+    "ContinuousDeploymentPolicyId": "",
+    "Staging": false
+}
 }
