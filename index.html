@@ -3,58 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sreeniketh Aathreya - AWS Cloud Engineer</title>
+    <title>Sreeniketh Aathreya - Resume</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
         }
         h1 {
             color: #333;
         }
+        form {
+            margin-top: 20px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
     </style>
-    <script>
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            var formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                message: document.getElementById('message').value
-            };
-            
-            fetch('https://2nepx2ve0d.execute-api.us-east-1.amazonaws.com/prod/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            })
-            .then(response => response.json())
-            .then(data => {
-                alert('Message sent successfully!');
-                document.getElementById('contactForm').reset();
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-                alert('An error occurred. Please try again.');
-            });
-        });
-        </script>
 </head>
 <body>
     <h1>Sreeniketh Aathreya</h1>
     <h2>AWS Cloud Engineer / DevOps Architect</h2>
     <p>Welcome to my resume website. This site is hosted on Amazon S3 and served via Amazon CloudFront.</p>
+
+    <h3>Contact Me</h3>
     <form id="contactForm">
         <input type="text" id="name" placeholder="Your Name" required>
         <input type="email" id="email" placeholder="Your Email" required>
         <textarea id="message" placeholder="Your Message" required></textarea>
         <button type="submit">Send Message</button>
     </form>
-    
-    
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var form = document.getElementById('contactForm');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                var formData = {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    message: document.getElementById('message').value
+                };
+
+                fetch('https://vbfp784jag.execute-api.us-east-1.amazonaws.com/prod/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert('Message sent successfully!');
+                    form.reset();
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again.');
+                });
+            });
+        } else {
+            console.error('Form with id "contactForm" not found');
+        }
+    });
+    </script>
 </body>
 </html>

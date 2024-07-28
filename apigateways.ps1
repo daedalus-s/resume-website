@@ -1,18 +1,25 @@
-aws apigateway create-rest-api --name ContactFormAPI
+# Create the API
+$api_id = aws apigateway create-rest-api --name ContactFormAPI --query 'id' --output text
 
-$API_ID = (aws apigateway get-rest-apis --query "items[?name=='ContactFormAPI'].id" --output text)
-$RESOURCE_ID = (aws apigateway get-resources --rest-api-id $API_ID --query "items[?path=='/'].id" --output text)
+# Get the root resource ID
+$root_resource_id = aws apigateway get-resources --rest-api-id $api_id --query 'items[0].id' --output text
 
-aws apigateway create-resource --rest-api-id $API_ID --parent-id $RESOURCE_ID --path-part "submit"
+# Create a resource
+$resource_id = aws apigateway create-resource --rest-api-id $api_id --parent-id $root_resource_id --path-part submit --query 'id' --output text
 
-$SUBMIT_RESOURCE_ID = (aws apigateway get-resources --rest-api-id $API_ID --query "items[?path=='/submit'].id" --output text)
+# Create a POST method
+aws apigateway put-method --rest-api-id $api_id --resource-id $resource_id --http-method POST --authorization-type NONE
 
-aws apigateway put-method --rest-api-id $API_ID --resource-id $SUBMIT_RESOURCE_ID --http-method POST --authorization-type NONE
+# Set up the integration with Lambda
+aws apigateway put-integration `
+    --rest-api-id $api_id `
+    --resource-id $resource_id `
+    --http-method POST `
+    --type AWS_PROXY `
+    --integration-http-method POST `
+    --uri arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:824116678613:function:ContactFormProcessor/invocations
 
-$LAMBDA_ARN = (aws lambda get-function --function-name ContactFormProcessor --query "Configuration.FunctionArn" --output text)
+# Deploy the API
+aws apigateway create-deployment --rest-api-id $api_id --stage-name prod
 
-aws apigateway put-integration --rest-api-id $API_ID --resource-id $SUBMIT_RESOURCE_ID --http-method POST --type AWS_PROXY --integration-http-method POST --uri arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/$LAMBDA_ARN/invocations
-
-aws apigateway create-deployment --rest-api-id $API_ID --stage-name prod
-
-$API_ENDPOINT = "https://$API_ID.execute-api.us-east-1.amazonaws.com/prod/submit"
+echo $api_id
