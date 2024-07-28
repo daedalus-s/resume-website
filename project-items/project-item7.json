@@ -1,0 +1,7 @@
+{
+    "ContentType": {"S": "Project"},
+    "ID": {"S": "25"},
+    "Title": {"S": "Quantum Entanglement"},
+    "Description": {"S": "Used pulse level control to create a bell state and implemented noise reduction techniques on Amazon Braket."},
+    "Technologies": {"SS": [" "]}
+  }
