@@ -48,7 +48,22 @@
     display: flex;
     gap: 20px;
     }
+    .company-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
 
+.company-logo {
+    width: 50px; 
+    height: 50px; 
+    object-fit: contain;
+    margin-right: 15px;
+}
+
+.company-experience h4 {
+    margin-bottom: 0;
+}
     .nav-links a {
     color: #ccd6f6;
     text-decoration: none;
@@ -59,8 +74,7 @@
     color: #64ffda;
     }
 
-    .hero {
-    min-height: calc(100vh - 100px); 
+    .hero { 
     display: flex;
     align-items: center;
     padding-top: 0;
@@ -265,10 +279,78 @@
     }
     .profile-section {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 0;
     position: relative;
     z-index: 2;
     }
+
+    .experience-timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.experience-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #64ffda;
+}
+
+.company-experience {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.company-experience::before {
+    content: '';
+    position: absolute;
+    left: -34px;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #64ffda;
+}
+
+.company-experience h4 {
+    margin-bottom: 15px;
+    color: #64ffda;
+}
+
+.company-experience ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.company-experience li {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.company-experience li::before {
+    content: '';
+    position: absolute;
+    left: -30px;
+    top: 5px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #8892b0;
+}
+
+.company-experience h5 {
+    margin-bottom: 5px;
+    color: #e6f1ff;
+}
+
+.company-experience .date {
+    font-size: 0.9em;
+    color: #8892b0;
+    margin-bottom: 5px;
+}
 
     #profile-picture {
     width: 200px;
@@ -426,6 +508,7 @@ function displayContent(type, items) {
         heading.textContent = type === 'Project' ? 'Projects' : type;
         container.appendChild(heading);
     }
+
     if (type === 'Experience') {
         const experienceMap = new Map();
         items.forEach(item => {
@@ -435,24 +518,48 @@ function displayContent(type, items) {
             experienceMap.get(item.Company).push(item);
         });
 
-        experienceMap.forEach((experiences, company) => {
+        const timeline = document.createElement('div');
+        timeline.className = 'experience-timeline';
+
+        Array.from(experienceMap.entries()).sort((a, b) => {
+            const dateA = new Date(a[1][0].StartDate);
+            const dateB = new Date(b[1][0].StartDate);
+            return dateB - dateA; // Sort in descending order (most recent first)
+        }).forEach(([company, experiences]) => {
             const companyElement = document.createElement('div');
             companyElement.className = 'company-experience';
             companyElement.innerHTML = `<h4>${company}</h4>`;
 
-            experiences.forEach(exp => {
-                const itemElement = document.createElement('div');
-                itemElement.className = 'item';
-                itemElement.innerHTML = `
+            const logoUrl = `https://sreeniketh-resume-website.s3.amazonaws.com/logos/${company.replace(/ /g, '_').toLowerCase()}.png`;
+            const logoImg = document.createElement('img');
+            logoImg.src = logoUrl;
+            logoImg.alt = `${company} logo`;
+            logoImg.className = 'company-logo';
+            logoImg.onerror = function() { this.style.display = 'none'; }; // Hide if logo not found
+
+            companyElement.innerHTML = `
+                <div class="company-header">
+                    ${logoImg.outerHTML}
+                    <h4>${company}</h4>
+                </div>
+            `;
+
+            const experienceList = document.createElement('ul');
+            experiences.sort((a, b) => new Date(b.StartDate) - new Date(a.StartDate)).forEach(exp => {
+                const experienceItem = document.createElement('li');
+                experienceItem.innerHTML = `
                     <h5>${exp.Position}</h5>
-                    <p>${exp.StartDate} - ${exp.EndDate}</p>
+                    <p class="date">${exp.StartDate} - ${exp.EndDate}</p>
                     <p>${exp.Description}</p>
                 `;
-                companyElement.appendChild(itemElement);
+                experienceList.appendChild(experienceItem);
             });
 
-            container.appendChild(companyElement);
+            companyElement.appendChild(experienceList);
+            timeline.appendChild(companyElement);
         });
+
+        container.appendChild(timeline);
     } else {
     items.forEach(item => {
         const itemElement = document.createElement('div');
