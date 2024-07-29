@@ -230,8 +230,11 @@
         </section>
 
         <section id="summary" class="container">
-            <h3>Summary</h3>
             <div id="summary"></div>
+        </section>
+        
+        <section id="experience" class="container">
+            <div id="experience"></div>
         </section>
         
         <section id="skills" class="container">
@@ -242,14 +245,8 @@
             <div id="database-management"></div>
             <div id="cloud-computing-tools"></div>
         </section>
-
-        <section id="experience" class="container">
-            <h3>Work Experience</h3>
-            <div id="experience"></div>
-        </section>
-
+        
         <section id="projects" class="container">
-            <h3>Projects</h3>
             <div id="projects"></div>
         </section>
         
@@ -259,7 +256,6 @@
         </section>
         
         <section id="education" class="container">
-            <h3>Education</h3>
             <div id="education"></div>
         </section>
 
@@ -277,8 +273,8 @@
     <div class="social-links">
         <a href="https://www.linkedin.com/in/sreeniketh-aathreya-16800b122/"><i class="fab fa-linkedin-in"></i></a>
         <a href="https://github.com/daedalus-s"><i class="fab fa-github"></i></a>
-        <a href="#"><i class="far fa-envelope"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#contact"><i class="far fa-envelope"></i></a>
+        <a href="https://www.instagram.com/2ez4sreeni/"><i class="fab fa-instagram"></i></a>
     </div>
     <script>
 function fetchContent(type) {
@@ -309,6 +305,13 @@ function displayContent(type, items) {
         return;
     }
     container.innerHTML = ''; // Clear existing content
+    
+    // Add heading for specific sections
+    if (['Experience', 'Education', 'Summary', 'Project'].includes(type)) {
+        const heading = document.createElement('h3');
+        heading.textContent = type === 'Project' ? 'Projects' : type;
+        container.appendChild(heading);
+    }
     
     items.forEach(item => {
         const itemElement = document.createElement('div');
