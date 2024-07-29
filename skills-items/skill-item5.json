@@ -1,0 +1,5 @@
+{
+    "ContentType": {"S": "Cloud Computing Tools"},
+    "ID": {"S": "15"},
+    "Description": {"S": "AWS-EC2 Interface, RDS, ELB, Elastic Cache, CloudFormation, Glacier, Snowball, Cloudtrail, CloudWatch, Prometheus, Grafana, Beanstalk, Git-Lab, Docker, Ansible Tower, Terraform, Bit Bucket, Jenkins, Cloud Bees Jenkins, GitHub, Databricks, Docker, Github Actions, NodeJS, Kubernetes, Aurora."}
+  }

@@ -1,0 +1,5 @@
+{
+    "ContentType": {"S": "Languages and Frameworks"},
+    "ID": {"S": "11"},
+    "Description": {"S": "Python, Java Script, Angular-JS, React, Kotlin, SQL, C, C++, Java, YAML"}
+  }

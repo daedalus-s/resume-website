@@ -1,0 +1,9 @@
+{
+    "ContentType": {"S": "Education"},
+    "ID": {"S": "17"},
+    "Degree": {"S": "Masters in Computer Science"},
+    "University": {"S": "Rutgers University"},
+    "GPA": {"S": "3.9"},
+    "StartDate": {"S": "2022-10"},
+    "EndDate": {"S": "2024-05"}
+  }

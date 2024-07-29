@@ -1,0 +1,5 @@
+{
+    "ContentType": {"S": "Database Management"},
+    "ID": {"S": "14"},
+    "Description": {"S": "MS Access, MySQL, Oracle, PostgreSQL, RESTful APIs, MongoDB"}
+  }

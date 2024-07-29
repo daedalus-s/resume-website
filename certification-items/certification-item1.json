@@ -1,0 +1,6 @@
+{
+    "ContentType": {"S": "Certification"},
+    "ID": {"S": "26"},
+    "Description": {"S": "AWS Certified Developer-Associate"},
+    "Verified": {"S": "Verified by Credly and AWS(2021-09-03 to 2024-09-03)"}
+  }

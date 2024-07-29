@@ -3,57 +3,374 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <title>Sreeniketh Aathreya - Resume</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        h1 {
-            color: #333;
-        }
-        form {
-            margin-top: 20px;
-        }
-        input, textarea {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #0a192f;
+    color: #8892b0;
+    }
+
+    .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    }
+
+    header {
+    background-color: rgba(10, 25, 47, 0.8);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    }
+
+    nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    }
+
+    .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #64ffda;
+    }
+
+    .nav-links {
+    display: flex;
+    gap: 20px;
+    }
+
+    .nav-links a {
+    color: #ccd6f6;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+    color: #64ffda;
+    }
+
+    .hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+    }
+
+    .hero-content {
+    max-width: 600px;
+    }
+
+    h1 {
+    font-size: 72px;
+    color: #ccd6f6;
+    margin-bottom: 10px;
+    }
+
+    h2 {
+    font-size: 48px;
+    color: #8892b0;
+    margin-bottom: 20px;
+    }
+
+    .hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    }
+
+    .cta-buttons {
+    display: flex;
+    gap: 20px;
+    }
+
+    .button {
+    padding: 12px 24px;
+    background-color: transparent;
+    border: 1px solid #64ffda;
+    color: #64ffda;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+    background-color: rgba(100, 255, 218, 0.1);
+    }
+
+    section {
+    padding: 100px 0;
+    }
+
+    h3 {
+    font-size: 32px;
+    color: #ccd6f6;
+    margin-bottom: 30px;
+    }
+
+    .item {
+    background-color: #112240;
+    padding: 20px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    }
+
+    .item h4 {
+    color: #e6f1ff;
+    margin-bottom: 10px;
+    }
+
+    .skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    }
+
+    .skills-container span {
+    background-color: #233554;
+    color: #64ffda;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    }
+
+    form {
+    background-color: #112240;
+    padding: 30px;
+    border-radius: 4px;
+    }
+
+    input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    background-color: #0a192f;
+    border: 1px solid #233554;
+    color: #ccd6f6;
+    border-radius: 4px;
+    }
+
+    button {
+    background-color: #64ffda;
+    color: #0a192f;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+    background-color: #45c3a1;
+    }
+
+    .social-links {
+    position: fixed;
+    left: 20px;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    }
+
+    .social-links a {
+    color: #ccd6f6;
+    font-size: 24px;
+    transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+    color: #64ffda;
+    }
+
+    .social-links::after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 90px;
+    margin: 0px auto;
+    background-color: #ccd6f6;
+    }
     </style>
 </head>
 <body>
-    <h1>Sreeniketh Aathreya</h1>
-    <h2>AWS Cloud Engineer / DevOps Architect</h2>
-    <p>Welcome to my resume website. This site is hosted on Amazon S3 and served via Amazon CloudFront.</p>
+    <header>
+        <nav class="container">
+            <div class="logo">SA</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#experience">Experience</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#certifications">Certifications</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
 
-    <h3>Contact Me</h3>
-    <form id="contactForm">
-        <input type="text" id="name" placeholder="Your Name" required>
-        <input type="email" id="email" placeholder="Your Email" required>
-        <textarea id="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-    </form>
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Sreeniketh Aathreya</h1>
+                    <h2>AWS Cloud Engineer / DevOps Architect</h2>
+                    <p>Welcome to my resume website. This site is hosted on Amazon S3 and served via Amazon CloudFront.</p>
+                    <div class="cta-buttons">
+                        <a href="#projects" class="button">View Projects</a>
+                        <a href="#" class="button">Download Resume</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <section id="summary" class="container">
+            <h3>Summary</h3>
+            <div id="summary"></div>
+        </section>
+        
+        <section id="skills" class="container">
+            <h3>Skills</h3>
+            <div id="languages-and-frameworks"></div>
+            <div id="operating-systems"></div>
+            <div id="web-technologies"></div>
+            <div id="database-management"></div>
+            <div id="cloud-computing-tools"></div>
+        </section>
+        
+        <section id="projects" class="container">
+            <h3>Projects</h3>
+            <div id="projects"></div>
+        </section>
+        
+        <section id="certifications" class="container">
+            <h3>Certifications</h3>
+            <div id="certification"></div>
+        </section>
+        
+        <section id="education" class="container">
+            <h3>Education</h3>
+            <div id="education"></div>
+        </section>
+
+        <section id="contact" class="container">
+            <h3>Contact Me</h3>
+            <form id="contactForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <div class="social-links">
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="far fa-envelope"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
+function fetchContent(type) {
+    fetch(`https://8mche0u0rk.execute-api.us-east-1.amazonaws.com/prod/resume-content?type=${type}`)
+        .then(response => response.json())
+        .then(data => {
+            console.log(`${type} data received:`, JSON.stringify(data, null, 2));
+            if (Array.isArray(data)) {
+                displayContent(type, data);
+            } else if (data.error) {
+                console.error(`Error fetching ${type}:`, data.error);
+            } else {
+                console.error(`Unexpected data format for ${type}:`, data);
+            }
+        })
+        .catch(error => console.error(`Error fetching ${type}:`, error));
+}
+
+function displayContent(type, items) {
+    let containerId = type.toLowerCase().replace(/ /g, '-');
+    if (type === 'Certification') containerId = 'certification';
+    if (type === 'Project') containerId = 'projects';
+    if (type === 'Experience') containerId = 'experiences';
+    
+    const container = document.getElementById(containerId);
+    if (!container) {
+        console.error(`Container for ${type} not found: #${containerId}`);
+        return;
+    }
+    container.innerHTML = ''; // Clear existing content
+    
+    items.forEach(item => {
+        const itemElement = document.createElement('div');
+        itemElement.className = 'item';
+        
+        switch(type) {
+            case 'Summary':
+                itemElement.innerHTML = `<p>${item.Description}</p>`;
+                break;
+            case 'Certification':
+                itemElement.innerHTML = `
+                    <h4>${item.Description}</h4>
+                    <p>${item.Verified}</p>
+                `;
+                break;
+            case 'Education':
+                itemElement.innerHTML = `
+                    <h4>${item.Degree}</h4>
+                    <p>${item.University}</p>
+                    <p>${item.StartDate} - ${item.EndDate}</p>
+                    <p>GPA: ${item.GPA}</p>
+                `;
+                break;
+            case 'Languages and Frameworks':
+            case 'Operating Systems':
+            case 'Web Technologies':
+            case 'Database Management':
+            case 'Cloud Computing Tools':
+                const skills = item.Description.split(', ');
+                itemElement.innerHTML = `
+                    <div class="skills-container">
+                        ${skills.map(skill => `<span>${skill}</span>`).join('')}
+                    </div>
+                `;
+                break;
+            case 'Project':
+                itemElement.innerHTML = `
+                    <h4>${item.Title}</h4>
+                    <p>${item.Description}</p>
+                    <p>Technologies: ${item.Technologies && item.Technologies.length > 0 && item.Technologies[0] !== " " ? item.Technologies.join(', ') : 'Not specified'}</p>
+                `;
+                break;
+            case 'Experience':
+                itemElement.innerHTML = `
+                    <h4>${item.Position} at ${item.Company}</h4>
+                    <p>${item.StartDate} - ${item.EndDate}</p>
+                    <p>${item.Description}</p>
+                `;
+                break;
+        }
+        
+        container.appendChild(itemElement);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    fetchContent('Summary');
+    fetchContent('Certification');
+    fetchContent('Education');
+    fetchContent('Languages and Frameworks');
+    fetchContent('Operating Systems');
+    fetchContent('Web Technologies');
+    fetchContent('Database Management');
+    fetchContent('Cloud Computing Tools');
+    fetchContent('Project');
+    fetchContent('Experience');
+
         var form = document.getElementById('contactForm');
         if (form) {
             form.addEventListener('submit', function(e) {
@@ -74,6 +391,7 @@
                 })
                 .then(response => response.json())
                 .then(data => {
+                    console.log('Success:', data);
                     alert('Message sent successfully!');
                     form.reset();
                 })

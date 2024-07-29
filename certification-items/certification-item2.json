@@ -1,0 +1,6 @@
+{
+    "ContentType": {"S": "Certification"},
+    "ID": {"S": "27"},
+    "Description": {"S": "AWS Certified Solutions Architect-Associate"},
+    "Verified": {"S": "Verified by Certmetrics(2020-12-12 to 2023-12-12)"}
+  }

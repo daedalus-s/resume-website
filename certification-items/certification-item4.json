@@ -1,0 +1,6 @@
+{
+    "ContentType": {"S": "Certification"},
+    "ID": {"S": "29"},
+    "Description": {"S": "Corda Certified Developer"},
+    "Verified": {"S": " "}
+  }

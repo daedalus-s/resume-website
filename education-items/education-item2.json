@@ -1,0 +1,9 @@
+{
+    "ContentType": {"S": "Education"},
+    "ID": {"S": "18"},
+    "Degree": {"S": "B.Tech in Computer Science and Engineering"},
+    "University": {"S": "PES University"},
+    "GPA": {"S": "3.5"},
+    "StartDate": {"S": "2016-09"},
+    "EndDate": {"S": "2020-06"}
+  }

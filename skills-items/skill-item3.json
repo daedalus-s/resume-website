@@ -1,0 +1,5 @@
+{
+    "ContentType": {"S": "Web technologies"},
+    "ID": {"S": "13"},
+    "Description": {"S": "JavaScript, HTML5, XML, CSS3, PHP, WordPress, Bootstrap, Spring, Django"}
+  }

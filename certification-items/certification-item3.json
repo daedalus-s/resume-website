@@ -1,0 +1,6 @@
+{
+    "ContentType": {"S": "Certification"},
+    "ID": {"S": "28"},
+    "Description": {"S": "AWS Certified Data Engineer-Associate"},
+    "Verified": {"S": " "}
+  }
