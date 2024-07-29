@@ -242,7 +242,12 @@
             <div id="database-management"></div>
             <div id="cloud-computing-tools"></div>
         </section>
-        
+
+        <section id="experience" class="container">
+            <h3>Work Experience</h3>
+            <div id="experience"></div>
+        </section>
+
         <section id="projects" class="container">
             <h3>Projects</h3>
             <div id="projects"></div>
@@ -270,8 +275,8 @@
     </main>
 
     <div class="social-links">
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/sreeniketh-aathreya-16800b122/"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/daedalus-s"><i class="fab fa-github"></i></a>
         <a href="#"><i class="far fa-envelope"></i></a>
         <a href="#"><i class="fab fa-instagram"></i></a>
     </div>
@@ -296,7 +301,7 @@ function displayContent(type, items) {
     let containerId = type.toLowerCase().replace(/ /g, '-');
     if (type === 'Certification') containerId = 'certification';
     if (type === 'Project') containerId = 'projects';
-    if (type === 'Experience') containerId = 'experiences';
+    if (type === 'Experience') containerId = 'experience';
     
     const container = document.getElementById(containerId);
     if (!container) {
