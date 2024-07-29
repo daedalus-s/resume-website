@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <title>Sreeniketh Aathreya - Resume</title>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <style>
         body {
     font-family: 'Arial', sans-serif;
@@ -197,9 +198,115 @@
     margin: 0px auto;
     background-color: #ccd6f6;
     }
+    #particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #0a192f;
+    z-index: -1;
+    }
+
+    .container {
+    position: relative;
+    z-index: 1;
+    }
+    @keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.item {
+    animation: fadeInUp 0.5s ease-out;
+    animation-fill-mode: both;
+}
+
+.item:nth-child(1) { animation-delay: 0.1s; }
+.item:nth-child(2) { animation-delay: 0.2s; }
+.item:nth-child(3) { animation-delay: 0.3s; }
+.item:nth-child(4) { animation-delay: 0.4s; }
+.item:nth-child(5) { animation-delay: 0.5s; }
+
+.skills-container span {
+    transition: all 0.3s ease;
+}
+
+.skills-container span:hover {
+    transform: scale(1.1);
+    background-color: #64ffda;
+    color: #0a192f;
+}
+
+h3 {
+    position: relative;
+    display: inline-block;
+}
+
+h3::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #64ffda;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+h3:hover::after {
+    transform: scaleX(1);
+}
+.profile-section {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#profile-picture {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #64ffda;
+}
+.company-experience {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: rgba(17, 34, 64, 0.7);
+    border-radius: 8px;
+}
+
+.company-experience h4 {
+    color: #64ffda;
+    margin-bottom: 1rem;
+}
+
+.company-experience .item {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(100, 255, 218, 0.2);
+}
+
+.company-experience .item:last-child {
+    border-bottom: none;
+}
+
+.company-experience h5 {
+    color: #e6f1ff;
+    margin-bottom: 0.5rem;
+}
     </style>
 </head>
 <body>
+    <div id="particles-js"></div>
+    <div class="profile-section">
+        <img id="profile-picture" src="C:\Users\Sreeni\Downloads\1676705794773.jpg" alt="Sreeniketh Aathreya">
+    </div>
     <header>
         <nav class="container">
             <div class="logo">SA</div>
@@ -261,6 +368,7 @@
 
         <section id="contact" class="container">
             <h3>Contact Me</h3>
+            Send me an email at sreenikethaathreya@gmail.com .
             <form id="contactForm">
                 <input type="text" id="name" placeholder="Your Name" required>
                 <input type="email" id="email" placeholder="Your Email" required>
@@ -312,7 +420,34 @@ function displayContent(type, items) {
         heading.textContent = type === 'Project' ? 'Projects' : type;
         container.appendChild(heading);
     }
-    
+    if (type === 'Experience') {
+        const experienceMap = new Map();
+        items.forEach(item => {
+            if (!experienceMap.has(item.Company)) {
+                experienceMap.set(item.Company, []);
+            }
+            experienceMap.get(item.Company).push(item);
+        });
+
+        experienceMap.forEach((experiences, company) => {
+            const companyElement = document.createElement('div');
+            companyElement.className = 'company-experience';
+            companyElement.innerHTML = `<h4>${company}</h4>`;
+
+            experiences.forEach(exp => {
+                const itemElement = document.createElement('div');
+                itemElement.className = 'item';
+                itemElement.innerHTML = `
+                    <h5>${exp.Position}</h5>
+                    <p>${exp.StartDate} - ${exp.EndDate}</p>
+                    <p>${exp.Description}</p>
+                `;
+                companyElement.appendChild(itemElement);
+            });
+
+            container.appendChild(companyElement);
+        });
+    } else {
     items.forEach(item => {
         const itemElement = document.createElement('div');
         itemElement.className = 'item';
@@ -366,7 +501,7 @@ function displayContent(type, items) {
         container.appendChild(itemElement);
     });
 }
-
+}
 document.addEventListener('DOMContentLoaded', function() {
     fetchContent('Summary');
     fetchContent('Certification');
@@ -411,7 +546,33 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             console.error('Form with id "contactForm" not found');
         }
+        particlesJS('particles-js', {
+        particles: {
+            number: { value: 80, density: { enable: true, value_area: 800 } },
+            color: { value: "#ffffff" },
+            shape: { type: "circle" },
+            opacity: { value: 0.5, random: false },
+            size: { value: 3, random: true },
+            line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
+            move: { enable: true, speed: 2, direction: "none", random: false, straight: false, out_mode: "out", bounce: false }
+        },
+        interactivity: {
+            detect_on: "canvas",
+            events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" }, resize: true },
+            modes: { repulse: { distance: 100, duration: 0.4 }, push: { particles_nb: 4 } }
+        },
+        retina_detect: true
     });
+    });
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
     </script>
 </body>
 </html>
