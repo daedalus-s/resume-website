@@ -528,8 +528,8 @@ function displayContent(type, items) {
         }).forEach(([company, experiences]) => {
             const companyElement = document.createElement('div');
             companyElement.className = 'company-experience';
-            companyElement.innerHTML = `<h4>${company}</h4>`;
-
+            
+            // Create logo element
             const logoUrl = `https://sreeniketh-resume-website.s3.amazonaws.com/logos/${company.replace(/ /g, '_').toLowerCase()}.png`;
             const logoImg = document.createElement('img');
             logoImg.src = logoUrl;
