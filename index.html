@@ -229,30 +229,38 @@
     .social-links {
     position: fixed;
     left: 20px;
-    bottom: 0;
+    top: 50%;
+    transform: translateY(-50%);
     display: flex;
     flex-direction: column;
     gap: 20px;
-    }
+    z-index: 1000;  /* This ensures the links are in front */
+}
 
-    .social-links a {
+.social-links a {
     color: #ccd6f6;
     font-size: 24px;
-    transition: color 0.3s ease;
-    }
+    transition: color 0.3s ease, transform 0.3s ease;
+}
 
-    .social-links a:hover {
+.social-links a:hover {
     color: #64ffda;
-    }
+    transform: scale(1.2);  /* This makes the icon slightly larger on hover */
+}
 
-    .social-links::after {
+.social-links::after {
     content: "";
     display: block;
     width: 1px;
     height: 90px;
     margin: 0px auto;
     background-color: #ccd6f6;
-    }
+}
+
+/* Add a glow effect on hover */
+.social-links a:hover {
+    text-shadow: 0 0 10px #64ffda;
+}
     #particles-js {
     position: fixed;
     width: 100%;
