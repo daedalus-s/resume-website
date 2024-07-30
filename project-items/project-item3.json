@@ -4,5 +4,6 @@
     "Title": {"S": "SelfieLess Acts"},
     "Description": {"S": "This project implements a custom container orchestrator for a web-based social media application using REST APIs. The application is split into microservices using Docker containers and hosted on AWS. The database used is MongoDB."},
     "Technologies": {"SS": ["Python", "Docker", "Django", "MongoDB", "WebSockets", "Flask", "OpenStack", "Beanstalk", "HTML"]},
-    "Link": {"S": "https://github.com/daedalus-s/SelfieLessActs"}
+    "Link": {"S": "https://github.com/daedalus-s/SelfieLessActs"},
+    "ImageURL": {"S": "https://sreeniketh-resume-website.s3.amazonaws.com/project_pics/selfieless.webp"}
   }

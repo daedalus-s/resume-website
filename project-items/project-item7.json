@@ -4,5 +4,6 @@
     "Title": {"S": "Quantum Entanglement"},
     "Description": {"S": "Used pulse level control to create a bell state and implemented noise reduction techniques on Amazon Braket."},
     "Technologies": {"SS": ["Pulse-level quantum control", "Amazon Braket platform", "Rigetti Aspen-M-3 quantum processor", "Quantum circuit decomposition", "Pulse calibration and optimization", "Depolarizing noise channel", "Stabilizer encoding", "Syndrome measurement", "Noisy Intermediate-Scale Quantum (NISQ) computing"]},
-    "Link": {"S": "https://github.com/daedalus-s/QuantumPulse"}
+    "Link": {"S": "https://github.com/daedalus-s/QuantumPulse"},
+    "ImageURL": {"S": "https://sreeniketh-resume-website.s3.amazonaws.com/project_pics/quantumpulse.png"}
   }

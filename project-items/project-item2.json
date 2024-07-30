@@ -4,5 +4,6 @@
     "Title": {"S": "Movie Recommendation System"},
     "Description": {"S": "Implemented a collaborative filtering algorithm using Python and machine learning techniques."},
     "Technologies": {"SS": ["User-Based Collaborative Filtering", "Singular Value Decomposition (SVD)", "Memory-based techniques", "Stacked Denoising Autoencoders (SDAE)", "Bag-of-words representation", "Collaborative Deep Learning (CDL)"]},
-    "Link": {"S":"https://github.com/daedalus-s/MovieRecommendationCDL/tree/main"}
+    "Link": {"S":"https://github.com/daedalus-s/MovieRecommendationCDL/tree/main"},
+    "ImageURL": {"S": "https://sreeniketh-resume-website.s3.amazonaws.com/project_pics/movie-recommendation.jpeg"}
   }

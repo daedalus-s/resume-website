@@ -137,7 +137,37 @@
     border-radius: 4px;
     margin-bottom: 20px;
     }
+    .item.project-with-bg {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    overflow: hidden;
+    }
 
+    .item.project-with-bg::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(10, 25, 47, 0.85);  /* Dark blue overlay */
+        z-index: 1;
+    }
+
+    .item.project-with-bg .project-content {
+        position: relative;
+        z-index: 2;
+    }
+
+    .item.project-with-bg a {
+        color: #64ffda;
+    }
+
+    .item.project-with-bg a:hover {
+        color: #45c3a1;
+    }
     .item h4 {
     color: #e6f1ff;
     margin-bottom: 10px;
@@ -186,7 +216,16 @@
     button:hover {
     background-color: #45c3a1;
     }
+    .item a {
+    color: #64ffda;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    }
 
+    .item a:hover {
+    color: #45c3a1;
+    text-decoration: underline;
+    }
     .social-links {
     position: fixed;
     left: 20px;
@@ -666,8 +705,8 @@ function displayContent(type, items) {
                         </div>
                     </div>
                     `;
-    console.log(`Attempting to load university logo: ${uniLogoUrl}`);
-    break;
+                console.log(`Attempting to load university logo: ${uniLogoUrl}`);
+            break;
             case 'Languages and Frameworks':
             case 'Operating Systems':
             case 'Web Technologies':
@@ -680,12 +719,25 @@ function displayContent(type, items) {
                     </div>
                 `;
                 break;
-            case 'Project':
+                case 'Project':
+                let technologiesHtml = item.Technologies && item.Technologies.length > 0 
+                    ? `<p>Technologies: ${item.Technologies.join(', ')}</p>` 
+                    : '';
+                let linkHtml = item.Link 
+                    ? `<p>Link: <a href="${item.Link}" target="_blank" rel="noopener noreferrer">${new URL(item.Link).hostname}</a></p>` 
+                    : '';
                 itemElement.innerHTML = `
-                    <h4>${item.Title}</h4>
-                    <p>${item.Description}</p>
-                    <p>Technologies: ${item.Technologies && item.Technologies.length > 0 && item.Technologies[0] !== " " ? item.Technologies.join(', ') : 'Not specified'}</p>
+                    <div class="project-content">
+                        <h4>${item.Title}</h4>
+                        <p>${item.Description}</p>
+                        ${technologiesHtml}
+                        ${linkHtml}
+                    </div>
                 `;
+                if (item.ImageURL) {
+                    itemElement.style.backgroundImage = `url('${item.ImageURL}')`;
+                    itemElement.classList.add('project-with-bg');
+                }
                 break;
             case 'Experience':
                 itemElement.innerHTML = `

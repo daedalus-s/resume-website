@@ -4,5 +4,6 @@
     "Title": {"S": "Face and Digit Classifier"},
     "Description": {"S": "Built machine learning models for image classification using Python and TensorFlow"},
     "Technologies": {"SS": ["Python", "Perceptrons", "K-Nearest Neighbours", "Naive Bayes Method", "Colab"]},
-    "Link": {"S": "https://github.com/daedalus-s/Face-DigitClassify"}
+    "Link": {"S": "https://github.com/daedalus-s/Face-DigitClassify"},
+    "ImageURL": {"S": "https://sreeniketh-resume-website.s3.amazonaws.com/project_pics/faceanddigit.webp"}
   }
