@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <title>Sreeniketh Aathreya - Resume</title>
+    <base href="https://sreeniketh-resume-website.s3.amazonaws.com/">
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <style>
         body {
@@ -298,7 +299,44 @@
     width: 2px;
     background-color: #64ffda;
 }
+.company-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
 
+.company-logo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-right: 15px;
+}
+
+.company-header div {
+    flex: 1;
+}
+
+.company-header h4 {
+    margin: 0;
+}
+
+.company-date {
+    font-size: 0.9em;
+    color: #8892b0;
+}
+
+.company-experience ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.company-experience li {
+    margin-bottom: 15px;
+}
+
+.company-experience h5 {
+    margin: 0 0 5px 0;
+}
 .company-experience {
     position: relative;
     margin-bottom: 40px;
@@ -456,7 +494,7 @@
 
         <section id="contact" class="container">
             <h3>Contact Me</h3>
-            Send me an email at sreenikethaathreya@gmail.com .
+            +1-571-279-7924 / sreenikethaathreya@gmail.com
             <form id="contactForm">
                 <input type="text" id="name" placeholder="Your Name" required>
                 <input type="email" id="email" placeholder="Your Email" required>
@@ -473,6 +511,7 @@
         <a href="https://www.instagram.com/2ez4sreeni/"><i class="fab fa-instagram"></i></a>
     </div>
     <script>
+
 function fetchContent(type) {
     fetch(`https://8mche0u0rk.execute-api.us-east-1.amazonaws.com/prod/resume-content?type=${type}`)
         .then(response => response.json())
@@ -510,56 +549,70 @@ function displayContent(type, items) {
     }
 
     if (type === 'Experience') {
-        const experienceMap = new Map();
-        items.forEach(item => {
-            if (!experienceMap.has(item.Company)) {
-                experienceMap.set(item.Company, []);
-            }
-            experienceMap.get(item.Company).push(item);
-        });
-
-        const timeline = document.createElement('div');
-        timeline.className = 'experience-timeline';
-
-        Array.from(experienceMap.entries()).sort((a, b) => {
-            const dateA = new Date(a[1][0].StartDate);
-            const dateB = new Date(b[1][0].StartDate);
-            return dateB - dateA; // Sort in descending order (most recent first)
-        }).forEach(([company, experiences]) => {
-            const companyElement = document.createElement('div');
-            companyElement.className = 'company-experience';
-            
-            // Create logo element
-            const logoUrl = `https://sreeniketh-resume-website.s3.amazonaws.com/logos/${company.replace(/ /g, '_').toLowerCase()}.png`;
-            const logoImg = document.createElement('img');
-            logoImg.src = logoUrl;
-            logoImg.alt = `${company} logo`;
-            logoImg.className = 'company-logo';
-            logoImg.onerror = function() { this.style.display = 'none'; }; // Hide if logo not found
-
-            companyElement.innerHTML = `
-                <div class="company-header">
-                    ${logoImg.outerHTML}
-                    <h4>${company}</h4>
-                </div>
-            `;
-
-            const experienceList = document.createElement('ul');
-            experiences.sort((a, b) => new Date(b.StartDate) - new Date(a.StartDate)).forEach(exp => {
-                const experienceItem = document.createElement('li');
-                experienceItem.innerHTML = `
-                    <h5>${exp.Position}</h5>
-                    <p class="date">${exp.StartDate} - ${exp.EndDate}</p>
-                    <p>${exp.Description}</p>
-                `;
-                experienceList.appendChild(experienceItem);
+    const experienceMap = new Map();
+    items.forEach(item => {
+        if (!experienceMap.has(item.Company)) {
+            experienceMap.set(item.Company, {
+                roles: [],
+                startDate: item.StartDate,
+                endDate: item.EndDate
             });
+        }
+        experienceMap.get(item.Company).roles.push(item);
+        // Update the overall start and end dates for the company
+        if (item.StartDate < experienceMap.get(item.Company).startDate) {
+            experienceMap.get(item.Company).startDate = item.StartDate;
+        }
+        if (item.EndDate > experienceMap.get(item.Company).endDate) {
+            experienceMap.get(item.Company).endDate = item.EndDate;
+        }
+    });
 
-            companyElement.appendChild(experienceList);
-            timeline.appendChild(companyElement);
+    const timeline = document.createElement('div');
+    timeline.className = 'experience-timeline';
+
+    Array.from(experienceMap.entries()).sort((a, b) => {
+        return new Date(b[1].endDate) - new Date(a[1].endDate);
+    }).forEach(([company, companyData]) => {
+        const companyElement = document.createElement('div');
+        companyElement.className = 'company-experience';
+        
+        // Create logo element
+        const logoUrl = `logos/${company.replace(/[^a-zA-Z0-9]/g, '_').toLowerCase()}.png`;
+        const logoImg = document.createElement('img');
+        logoImg.src = logoUrl;
+        logoImg.alt = `${company} logo`;
+        logoImg.className = 'company-logo';
+        logoImg.onerror = function() {
+            this.src = 'logos/default_company_logo.png'; // Replace with your default logo path
+        };
+
+        companyElement.innerHTML = `
+            <div class="company-header">
+                ${logoImg.outerHTML}
+                <div>
+                    <h4>${company}</h4>
+                    <p class="company-date">${companyData.startDate} - ${companyData.endDate}</p>
+                </div>
+            </div>
+        `;
+
+        const rolesList = document.createElement('ul');
+        companyData.roles.forEach(role => {
+            const roleItem = document.createElement('li');
+            roleItem.innerHTML = `
+                <h5>${role.Position}</h5>
+                <p>${role.Description}</p>
+            `;
+            rolesList.appendChild(roleItem);
         });
 
-        container.appendChild(timeline);
+        companyElement.appendChild(rolesList);
+        timeline.appendChild(companyElement);
+    });
+
+    container.appendChild(timeline);
+
     } else {
     items.forEach(item => {
         const itemElement = document.createElement('div');
@@ -575,14 +628,23 @@ function displayContent(type, items) {
                     <p>${item.Verified}</p>
                 `;
                 break;
-            case 'Education':
+                case 'Education':
+                const uniLogoUrl = `logos/${item.University.replace(/[^a-zA-Z0-9]/g, '_').toLowerCase()}.png`;
                 itemElement.innerHTML = `
+                <div class="education-item">
+                <img src="${uniLogoUrl}" 
+                    alt="${item.University} logo" 
+                    class="university-logo"
+                    onerror="this.src='default_university_logo.png'">
+                <div>
                     <h4>${item.Degree}</h4>
                     <p>${item.University}</p>
                     <p>${item.StartDate} - ${item.EndDate}</p>
                     <p>GPA: ${item.GPA}</p>
-                `;
-                break;
+                </div>
+            </div>
+    `;
+    break;
             case 'Languages and Frameworks':
             case 'Operating Systems':
             case 'Web Technologies':
