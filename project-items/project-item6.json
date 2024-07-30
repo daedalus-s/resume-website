@@ -3,5 +3,6 @@
     "ID": {"S": "24"},
     "Title": {"S": "Elderly Assistance Robot"},
     "Description": {"S": "Implemented a socially cognizant robot that implemented the concept of crowd navigation using OpenAI Baselines."},
-    "Technologies": {"SS": [" "]}
+    "Technologies": {"SS": ["YOLOv3 architecture for object detection", "Graph Neural Networks with attention mechanisms for modeling complex interactions between the user, pedestrians, and the environment", "LSTMs, GRUs, or GANs to forecast future positions of nearby pedestrians", "Recurrent Graph Neural Networks (RGNNs) for crowd navigation", "Reinforcement learning specifically PPO (Proximal Policy Optimization) for robot control and navigation", "Reinforcement learning, specifically PPO (Proximal Policy Optimization) for robot control and navigation","Markov Decision Processes as a foundation for the navigation framework", "Attention Mechanisms for focusing on relevant information in the environment"]},
+    "Link": {"S": "https://github.com/daedalus-s/ElderlyAssistanceSCR"}
   }

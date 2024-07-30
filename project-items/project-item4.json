@@ -3,5 +3,6 @@
     "ID": {"S": "22"},
     "Title": {"S": "Face and Digit Classifier"},
     "Description": {"S": "Built machine learning models for image classification using Python and TensorFlow"},
-    "Technologies": {"SS": [" "]}
+    "Technologies": {"SS": ["Python", "Perceptrons", "K-Nearest Neighbours", "Naive Bayes Method", "Colab"]},
+    "Link": {"S": "https://github.com/daedalus-s/Face-DigitClassify"}
   }

@@ -306,8 +306,8 @@
 }
 
 .company-logo {
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     object-fit: contain;
     margin-right: 15px;
 }
@@ -426,6 +426,22 @@
     color: #e6f1ff;
     margin-bottom: 0.5rem;
     }
+    .education-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.university-logo {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-right: 20px;
+}
+
+.education-item div {
+    flex: 1;
+}
     </style>
 </head>
 <body>
@@ -455,8 +471,8 @@
                     <h2>AWS Cloud Engineer / DevOps Architect</h2>
                     <p>Welcome to my resume website. This site is hosted on Amazon S3 and served via Amazon CloudFront.</p>
                     <div class="cta-buttons">
-                        <a href="#projects" class="button">View Projects</a>
                         <a href="https://sreeniketh-resume-website.s3.amazonaws.com/SreenikethPythonDevResume.pdf" class="button">Download Resume</a>
+                        <a href="#projects" class="button">View Projects</a>
                     </div>
                 </div>
             </div>
@@ -572,27 +588,32 @@ function displayContent(type, items) {
     timeline.className = 'experience-timeline';
 
     Array.from(experienceMap.entries()).sort((a, b) => {
-        return new Date(b[1].endDate) - new Date(a[1].endDate);
-    }).forEach(([company, companyData]) => {
-        const companyElement = document.createElement('div');
-        companyElement.className = 'company-experience';
-        
-        // Create logo element
-        const logoUrl = `logos/${company.replace(/[^a-zA-Z0-9]/g, '_').toLowerCase()}.png`;
-        const logoImg = document.createElement('img');
-        logoImg.src = logoUrl;
-        logoImg.alt = `${company} logo`;
-        logoImg.className = 'company-logo';
-        logoImg.onerror = function() {
-            this.src = 'logos/default_company_logo.png'; // Replace with your default logo path
-        };
+            return new Date(b[1].endDate) - new Date(a[1].endDate);
+        }).forEach(([company, companyData]) => {
+            const companyElement = document.createElement('div');
+            companyElement.className = 'company-experience';
+            
+            // Create logo element
+            const logoFileName = company.replace(/ /g, '_').replace(/,/g, '%2C');
+            const logoUrl = `https://sreeniketh-resume-website.s3.amazonaws.com/logos/${logoFileName}.png`;
+            const logoImg = document.createElement('img');
+            logoImg.src = logoUrl;
+            logoImg.alt = `${company} logo`;
+            logoImg.className = 'company-logo';
+            logoImg.onerror = function() {
+                console.log(`Failed to load logo: ${logoUrl}`);
+                this.src = 'https://sreeniketh-resume-website.s3.amazonaws.com/logos/default_company_logo.png';
+                this.alt = 'Default company logo';
+            };
+
+            console.log(`Attempting to load logo for ${company}: ${logoUrl}`);
 
         companyElement.innerHTML = `
             <div class="company-header">
                 ${logoImg.outerHTML}
                 <div>
                     <h4>${company}</h4>
-                    <p class="company-date">${companyData.startDate} - ${companyData.endDate}</p>
+                    <p class="company-date">${companyData.startDate} to ${companyData.endDate}</p>
                 </div>
             </div>
         `;
@@ -628,22 +649,24 @@ function displayContent(type, items) {
                     <p>${item.Verified}</p>
                 `;
                 break;
-                case 'Education':
-                const uniLogoUrl = `logos/${item.University.replace(/[^a-zA-Z0-9]/g, '_').toLowerCase()}.png`;
-                itemElement.innerHTML = `
-                <div class="education-item">
-                <img src="${uniLogoUrl}" 
-                    alt="${item.University} logo" 
-                    class="university-logo"
-                    onerror="this.src='default_university_logo.png'">
-                <div>
-                    <h4>${item.Degree}</h4>
-                    <p>${item.University}</p>
-                    <p>${item.StartDate} - ${item.EndDate}</p>
-                    <p>GPA: ${item.GPA}</p>
-                </div>
-            </div>
-    `;
+            case 'Education':
+                const uniLogoFileName = item.University.replace(/ /g, '_');
+                const uniLogoUrl = `https://sreeniketh-resume-website.s3.amazonaws.com/logos/${uniLogoFileName}.png`;
+                    itemElement.innerHTML = `
+                    <div class="education-item">
+                        <img src="${uniLogoUrl}" 
+                            alt="${item.University} logo" 
+                            class="university-logo"
+                            onerror="this.onerror=null; this.src='https://sreeniketh-resume-website.s3.amazonaws.com/logos/default_university_logo.png';">
+                        <div>
+                            <h4>${item.Degree}</h4>
+                            <p>${item.University}</p>
+                            <p>${item.StartDate} to ${item.EndDate}</p>
+                            <p>GPA: ${item.GPA}</p>
+                        </div>
+                    </div>
+                    `;
+    console.log(`Attempting to load university logo: ${uniLogoUrl}`);
     break;
             case 'Languages and Frameworks':
             case 'Operating Systems':
