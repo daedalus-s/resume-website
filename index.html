@@ -123,22 +123,23 @@
     background-color: rgba(17, 34, 64, 0.8);
     color: #64ffda;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 5px 0 0 5px;
     font-size: 14px;
-    }
+    display: inline-block;
+}
 
-    #dark-mode-toggle {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background-color: #64ffda;
-        color: #0a192f;
-        border: none;
-        padding: 10px 15px;
-        border-radius: 5px;
-        cursor: pointer;
-        z-index: 1001;
-    }
+#dark-mode-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 0;
+    background-color: #64ffda;
+    color: #0a192f;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 14px;
+}
 
     body.dark-mode {
         background-color: #000;
@@ -265,7 +266,7 @@
     }
     .social-links {
     position: fixed;
-    left: 20px;
+    left: 5px;
     top: 50%;
     transform: translateY(-50%);
     display: flex;
@@ -892,7 +893,9 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
     </script>
-<div id="visitor-counter">Visitors: <span id="count">0</span></div>
-<button id="dark-mode-toggle">Toggle Dark Mode</button>
+<div style="position: fixed; bottom: 20px; right: 20px; display: flex;">
+    <div id="visitor-counter">Visitors: <span id="count">0</span></div>
+    <button id="dark-mode-toggle">Toggle Dark Mode</button>
+</div>
 </body>
 </html>
