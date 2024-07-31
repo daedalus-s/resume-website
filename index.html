@@ -119,28 +119,40 @@
     #visitor-counter {
     position: fixed;
     bottom: 20px;
-    right: 20px;
+    right: 150px; 
     background-color: rgba(17, 34, 64, 0.8);
     color: #64ffda;
     padding: 10px;
-    border-radius: 5px 0 0 5px;
+    border-radius: 5px;
     font-size: 14px;
-    display: inline-block;
+    z-index: 1000;
 }
 
 #dark-mode-toggle {
     position: fixed;
     bottom: 20px;
-    right: 0;
+    right: 20px;
     background-color: #64ffda;
     color: #0a192f;
     border: none;
     padding: 10px 15px;
-    border-radius: 0 5px 5px 0;
+    border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
+    z-index: 1000;
+}
+#bottom-right-controls {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 1000;
 }
 
+#bottom-right-controls > * {
+    position: static;
+}
     body.dark-mode {
         background-color: #000;
         color: #fff;
@@ -190,7 +202,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(10, 25, 47, 0.85);  /* Dark blue overlay */
+        background: rgba(10, 25, 47, 0.85);  
         z-index: 1;
     }
 
@@ -272,7 +284,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    z-index: 1000;  /* This ensures the links are in front */
+    z-index: 1000;  
 }
 
 .social-links a {
@@ -283,7 +295,7 @@
 
 .social-links a:hover {
     color: #64ffda;
-    transform: scale(1.2);  /* This makes the icon slightly larger on hover */
+    transform: scale(1.2);  
 }
 
 .social-links::after {
@@ -483,7 +495,7 @@
     border: 3px solid #64ffda;
     position: relative;
     z-index: 2;
-    margin-top: 20px; /* Adjust this value as needed */
+    margin-top: 20px; 
     }
     .company-experience {
     margin-bottom: 2rem;
@@ -636,10 +648,12 @@ function updateVisitorCount() {
         });
 }
 
-// Dark Mode Toggle
 function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
     localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+}
+function cb(response) {
+    document.getElementById('visits').innerText = response.value;
 }
 function displayContent(type, items) {
     let containerId = type.toLowerCase().replace(/ /g, '-');
@@ -654,7 +668,6 @@ function displayContent(type, items) {
     }
     container.innerHTML = ''; // Clear existing content
     
-    // Add heading for specific sections
     if (['Experience', 'Education', 'Summary', 'Project'].includes(type)) {
         const heading = document.createElement('h3');
         heading.textContent = type === 'Project' ? 'Projects' : type;
@@ -672,7 +685,6 @@ function displayContent(type, items) {
             });
         }
         experienceMap.get(item.Company).roles.push(item);
-        // Update the overall start and end dates for the company
         if (item.StartDate < experienceMap.get(item.Company).startDate) {
             experienceMap.get(item.Company).startDate = item.StartDate;
         }
@@ -690,7 +702,6 @@ function displayContent(type, items) {
             const companyElement = document.createElement('div');
             companyElement.className = 'company-experience';
             
-            // Create logo element
             const logoFileName = company.replace(/ /g, '_').replace(/,/g, '%2C');
             const logoUrl = `https://sreeniketh-resume-website.s3.amazonaws.com/logos/${logoFileName}.png`;
             const logoImg = document.createElement('img');
@@ -877,7 +888,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const darkModeToggle = document.getElementById('dark-mode-toggle');
     darkModeToggle.addEventListener('click', toggleDarkMode);
 
-    // Check for saved dark mode preference
     if (localStorage.getItem('darkMode') === 'true') {
         document.body.classList.add('dark-mode');
     }
@@ -893,9 +903,11 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
     </script>
-<div style="position: fixed; bottom: 20px; right: 20px; display: flex;">
-    <div id="visitor-counter">Visitors: <span id="count">0</span></div>
+    <script async src="https://api.countapi.xyz/hit/sreenikethaathreya.com/visits?callback=cb"></script>
+<div id="bottom-right-controls">
+    <div id="visitor-counter">Visitors: <span id="count">535</span></div>
     <button id="dark-mode-toggle">Toggle Dark Mode</button>
+</div>
 </div>
 </body>
 </html>
