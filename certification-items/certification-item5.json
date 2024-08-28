@@ -1,0 +1,6 @@
+{
+    "ContentType": {"S": "Certification"},
+    "ID": {"S": "35"},
+    "Description": {"S": "Academy Accreditation - Databricks Lakehouse Fundamentals"},
+    "Verified": {"S": "Verified by Databricks(August 2024 - August 2025)"}
+  }

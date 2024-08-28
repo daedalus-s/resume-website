@@ -1,0 +1,6 @@
+{
+    "ContentType": {"S": "Certification"},
+    "ID": {"S": "36"},
+    "Description": {"S": "Academy Accreditation - Generative AI Fundamentals"},
+    "Verified": {"S": "Verified by Databricks(August 2024 - August 2026)"}
+  }
