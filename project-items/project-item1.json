@@ -4,6 +4,6 @@
     "Title": {"S": "Resume Website"},
     "Description": {"S": "Created a serverless resume website using AWS services(This one HAHA)"},
     "Technologies": {"SS": ["S3", "CloudFront", "Lambda", "API Gateway", "DynamoDB"]},
-    "Link": {"S":"https://sreenikethaathreya.com/"},
+    "Link": {"S":"https://medium.com/@sreenikethaathreya/cloud-resume-challenge-c4f17c3d53ff"},
     "ImageURL": {"S": "https://sreeniketh-resume-website.s3.amazonaws.com/project_pics/resumewebsite.png"}
   }

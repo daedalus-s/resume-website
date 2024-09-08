@@ -1,0 +1,9 @@
+{
+    "ContentType": {"S": "Project"},
+    "ID": {"S": "34"},
+    "Title": {"S": "RagOps Toy Store"},
+    "Description": {"S": "Implemented techniques that augment and generate results for fine-tuned Large Language Models in creating a website that recommends products that match the user's natural language queries from a database of 15000 Amazon products"},
+    "Technologies": {"SS": ["Retrieval Augmented Generation", "AWS services", "NLP", "Large Language Models", "Vector Embeddings"]},
+    "Link": {"S":"https://prorecsa.co/"},
+    "ImageURL": {"S": "https://sreeniketh-resume-website.s3.amazonaws.com/project_pics/prorescaragops.png"}
+  }

@@ -1,0 +1,9 @@
+{
+    "ContentType": {"S": "Project"},
+    "ID": {"S": "35"},
+    "Title": {"S": "Medical Blog Generation"},
+    "Description": {"S": "AWS-native website with a RAG-based generation from a database of medical drugs and live web search for updating vector database, as well as image generation with Stable Diffusion."},
+    "Technologies": {"SS": ["Live Web Retrieval", "Stable Diffusion", "Retrieval Augmented Generation", "AWS services", "NLP", "Large Language Models", "Vector Embeddings"]},
+    "Link": {"S":"https://medbloggen.xyz/"},
+    "ImageURL": {"S": "https://medical-blog-generation.s3.amazonaws.com/medbloggenss.png"}
+  }
